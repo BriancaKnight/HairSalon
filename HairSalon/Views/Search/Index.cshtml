@@ -1,0 +1,28 @@
+@{
+    Layout = "_Layout";
+}
+
+<h2>Search Database</h2>
+@using (Html.BeginForm("Results", "Search", FormMethod.Post))
+{
+    <div>
+        <label for="query">Search Query:</label>
+        <input type="text" name="query" id="query" required />
+    </div>
+
+    <div>
+        <label for="searchType">Search Type:</label>
+        <select name="searchType" id="searchType">
+            <option value="Stylist">Stylist</option>
+            <option value="Client">Client</option>
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+}
+
+<div class="navigation">
+<div>@Html.ActionLink("Return Home", "Index", "Home")</div>
+</div>

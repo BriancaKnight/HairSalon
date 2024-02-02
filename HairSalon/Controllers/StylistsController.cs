@@ -16,34 +16,12 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-      private async Task<List<Stylist>> SearchMethod (string query)
+    public ActionResult Index()
     {
-      IQueryable<Stylist> result = _db.Set<Stylist>()
-                                    .Include(stylist => stylist.Clients);
-
-      if (query != null)
-      {
-        return await result?.Where(stylist => stylist.StylistName.Contains(query)).ToListAsync();
-      }
-      else
-      {
-        return await result.ToListAsync();
-      }
-    }
-
-    public async Task<IActionResult> Index(string query)
-    {
-      List<Stylist> resultList = await SearchMethod(query);
+      List<Stylist> model = _db.Stylists.ToList();
       ViewBag.PageTitle = "Current Stylists";
-      return View(resultList);
+      return View(model);
     }
-
-    // public ActionResult Index()
-    // {
-    //   List<Stylist> model = _db.Stylists.ToList();
-    //   ViewBag.PageTitle = "Current Stylists";
-    //   return View(model);
-    // }
 
     public ActionResult Create()
     {

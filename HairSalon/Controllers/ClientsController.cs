@@ -18,37 +18,15 @@ namespace HairSalon.Controllers
       _db  = db;
     }
 
-        private async Task<List<Client>> SearchMethod (string query)
+    public ActionResult Index()
     {
-      IQueryable<Client> result = _db.Set<Client>()
-                                    .Include(client => client.Stylist);
-
-      if (query != null)
-      {
-        return await result?.Where(client => client.ClientName.Contains(query) || client.Stylist.StylistName.Contains(query)).ToListAsync();
-      }
-      else
-      {
-        return await result.ToListAsync();
-      }
-    }
-
-    public async Task<IActionResult> Index(string query)
-    {
-      List<Client> resultList = await SearchMethod(query);
+      List<Client> model = _db.Clients
+                            .Include(client => client.Stylist)
+                            .ToList();
       ViewBag.PageTitle = "Current Clients";
-      return View(resultList);
+      return View(model);
     }
-
-    // public ActionResult Index()
-    // {
-    //   List<Client> model = _db.Clients
-    //                         .Include(client => client.Stylist)
-    //                         .ToList();
-    //   ViewBag.PageTitle = "Current Clients";
-    //   return View(model);
-    // }
-
+    
     public ActionResult Create()
     {
       ViewBag.PageTitle  = "New Client";
