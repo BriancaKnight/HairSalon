@@ -13,7 +13,7 @@
 @using(Html.BeginForm())
 {
   @Html.LabelFor(model => model.ClientName)
-  @Html.TextBoxFor(model => model.ClientName)
+  @Html.TextBoxFor(model => model.ClientName, new { required = "required"})
 
   @Html.LabelFor(model => model.Stylist)
   @Html.DropDownList("StylistId")
