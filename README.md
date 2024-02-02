@@ -1,4 +1,4 @@
-# Pierre's Bakery
+# Eau Claire's Salon
 
 ### A C# Salon Managment Application.
 
