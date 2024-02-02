@@ -1,0 +1,9 @@
+<div id="header">
+<br>
+  <h2>Eau Claire's Salon</h2>
+  @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
+  {
+    <input type="text" name="query" />
+    <input type="submit" value="Search" />
+  }
+</div>

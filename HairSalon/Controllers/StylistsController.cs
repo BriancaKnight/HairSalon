@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HairSalon.Controllers
 {
@@ -15,12 +16,34 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+      private async Task<List<Stylist>> SearchMethod (string query)
     {
-      List<Stylist> model = _db.Stylists.ToList();
-      ViewBag.PageTitle = "Current Stylists";
-      return View(model);
+      IQueryable<Stylist> result = _db.Set<Stylist>()
+                                    .Include(stylist => stylist.Clients);
+
+      if (query != null)
+      {
+        return await result?.Where(stylist => stylist.StylistName.Contains(query)).ToListAsync();
+      }
+      else
+      {
+        return await result.ToListAsync();
+      }
     }
+
+    public async Task<IActionResult> Index(string query)
+    {
+      List<Stylist> resultList = await SearchMethod(query);
+      ViewBag.PageTitle = "Current Stylists";
+      return View(resultList);
+    }
+
+    // public ActionResult Index()
+    // {
+    //   List<Stylist> model = _db.Stylists.ToList();
+    //   ViewBag.PageTitle = "Current Stylists";
+    //   return View(model);
+    // }
 
     public ActionResult Create()
     {
