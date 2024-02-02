@@ -1,19 +1,25 @@
 # Pierre's Bakery
 
-#### A c# salon managment app.
+### A C# Salon Managment Application.
 
 #### By Brianca Knight
 
 ## Technologies Used
 
 * C#
+* .Net 6
 * ASP.Net / MVC
+* Entity Framework Core
 * MySQL
 * MySQL Workbench
 
 ## Description
 
 This webpage provides a client and stylist organizing system utilizing MVC pattern. Users can add new stylists, add new clients to each stylist, and see lists of each. Additionally, users can search the database for both stylists and clients.  
+
+Here is a diagram of the schema structure:
+
+![Schema Diagram](./HairSalon/wwwroot/imgs/salon_sql_design.png)
 
 ## Setup/Installation Requirements
 
