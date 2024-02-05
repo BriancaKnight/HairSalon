@@ -13,6 +13,13 @@ a {
   font-style: oblique;
   font-size: 114%;
   transition: font-size 0.2s ease; 
+  text-shadow: 
+    -.5px -.5px 0 #242124,  
+    .5px -.5px 0 #242124,
+    -.5px .5px 0 #242124,
+    .5px .5px 0 #242124; 
+    border: black;
+    border-radius: 8px;
 }
 
 a:hover {
@@ -24,6 +31,11 @@ a:hover {
 body {
   background-color: #242124;
   color: rgb(140, 106, 163);
+  text-shadow: 
+  -.5px -.5px 0 #242124,  
+  .5px -.5px 0 #242124,
+  -.5px .5px 0 #242124,
+  .5px .5px 0 #242124; 
 }
 
 h2{
@@ -68,4 +80,22 @@ header  {
   margin: 10px; 
   padding: 15px; 
   border-radius: 8px; 
+}
+
+.search {
+  text-align: center;
+  background-color: rgba(169, 169, 169, 0.5);
+  padding: 10px; 
+  border-radius: 8px; 
+  margin: 20%;
+}
+
+.navigation {
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1%;
 }

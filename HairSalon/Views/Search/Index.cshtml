@@ -5,6 +5,7 @@
 <h2>Search Database</h2>
 @using (Html.BeginForm("Results", "Search", FormMethod.Post))
 {
+    <div class="search">
     <div>
         <label for="query">Search Query:</label>
         <input type="text" name="query" id="query" required />
@@ -20,6 +21,7 @@
 
     <div>
         <input type="submit" value="Search" />
+    </div>
     </div>
 }
 
